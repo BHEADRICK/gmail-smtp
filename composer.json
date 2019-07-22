@@ -1,0 +1,5 @@
+{
+    "name": "bheadrick/gmail-smtp",
+    "type": "wordpress-plugin",
+    "require": {}
+}
