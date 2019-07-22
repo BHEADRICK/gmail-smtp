@@ -622,6 +622,10 @@ if(!function_exists('wp_mail') && is_gmail_smtp_configured()){
                     $attachments = explode( "\n", str_replace( "\r\n", "\n", $attachments ) );
             }
 
+	    if(!apply_filters('gmail_smtp_should_send', compact( 'to', 'subject', 'message', 'headers', 'attachments' ), true)){
+		    return;
+	    }
+
             include_once('google-api-php-client/vendor/autoload.php');
             include_once('PHPMailer/PHPMailerAutoload.php');
             include_once('class.phpmaileroauthgoogle.php');
